@@ -17,6 +17,12 @@ function ComponentInitialization(){
         result.then(function(res){
         console.log(res);
         //here will be the function that will make the HTML document
+        debugger;
+        res.forEach(element => {
+          Cardmaker(element);         
+        });
+
+        
         })
     });
 
@@ -62,6 +68,62 @@ function ComponentInitialization(){
         //here will be the function that will make the HTML document
         })
     });
+
+    //Funtion for maker html
+
+    /* 
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Card Two</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary btn-sm">More Info</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+    */
+    function Cardmaker(activity)
+    {
+        const row=document.getElementById("row1");
+
+        const cardBase=document.createElement('div');
+        cardBase.className='col-md-4 mb-5';
+
+        const card=document.createElement('div');
+        card.className='card h-100';
+
+        const cardBody=document.createElement('div');
+        cardBody.className='card-body';
+
+        const TitleBody = document.createElement('h2');
+        TitleBody.textContent = activity.Titulo;
+        TitleBody.className = "card-title";        
+        const TextBody = document.createElement('p');
+        TextBody.textContent = activity.Descripcion;
+        TextBody.className = "card-text";
+
+        
+        const cardFooter=document.createElement('div');
+        cardFooter.className='card-footer';
+        const buttonInfo = document.createElement('a');
+        buttonInfo.className = "btn btn-primary btn-sm";
+        buttonInfo.textContent = "More Info";
+
+        row.appendChild(cardBase);
+        cardBase.appendChild(card);
+        card.appendChild(cardBody);
+        cardBody.appendChild(TitleBody);
+        cardBody.appendChild(TextBody);
+
+        card.appendChild(cardFooter);
+        cardFooter.appendChild(buttonInfo);
+    } 
+
+
+
 
 }
 //{"Id": "1", "Area": "artevisual", "Titulo": "Insertar robots", "Descripcion": "Inserción de la robótica en el Aula", "Duracion": "50 hrs"}
