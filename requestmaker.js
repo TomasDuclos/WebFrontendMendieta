@@ -29,7 +29,7 @@ function requestHandler(){
     operations.getActivityId= function(id)
     {      
         try 
-        {       
+        {            
             let result=fetch(baseURL+'/api/Activity/'+id)
                 .then(function(res){
                     if(res.ok){
@@ -49,6 +49,7 @@ function requestHandler(){
     } 
 
     operations.AddActivity = function(activity) {
+        
         return new Promise((resolve,reject)=>{
             let request = new XMLHttpRequest();
             request.open("POST", baseURL + "/api/Activity", true)
@@ -87,7 +88,7 @@ function requestHandler(){
         
     };
     return operations;
-} 
+}
     /*
     operations.AddActivity= function(activity)
     {      
@@ -99,7 +100,7 @@ function requestHandler(){
                     'Content-Type': 'application/json'
                   },
                 method: 'POST',
-                body:JSON.stringify(activity)
+                
             };           
             console.log(JSON.stringify(activity));  
             let result=fetch(baseURL+'/api/Activity',myInit)

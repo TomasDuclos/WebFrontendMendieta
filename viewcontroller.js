@@ -17,12 +17,10 @@ function ComponentInitialization(){
         result.then(function(res){
         console.log(res);
         //here will be the function that will make the HTML document
-        debugger;
-        res.forEach(element => {
-          Cardmaker(element);         
-        });
-
         
+        //res.forEach(element => {
+         // Cardmaker(element);         
+        //});   
         })
     });
 
